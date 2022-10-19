@@ -1,0 +1,11 @@
+Document: uthash
+Title: Debian uthash Manual
+Author: Bastian Blywis
+Abstract: This manual describes what uthash is
+ and how it can be used in C source code.
+Section: Programming
+
+Format: HTML
+Index: /usr/share/doc/uthash-dev/html/index.html
+Files: /usr/share/doc/uthash-dev/html/*.html
+       /usr/share/doc/uthash-dev/html/*.png

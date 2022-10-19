@@ -1,0 +1,8 @@
+#! /usr/bin/dh-exec
+
+src/*.h usr/include/
+libut/include/libut.h usr/include/
+libut/include/ringbuf.h usr/include/
+libut/include/utmm.h usr/include/
+libut/include/utvector.h usr/include/
+libut/libut.a usr/lib/${DEB_HOST_MULTIARCH}/

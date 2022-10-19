@@ -1,0 +1,2 @@
+# Some test files are identical
+uthash-dev: duplicate-files usr/share/doc/uthash-dev/examples/test30.c usr/share/doc/uthash-dev/examples/test31.c

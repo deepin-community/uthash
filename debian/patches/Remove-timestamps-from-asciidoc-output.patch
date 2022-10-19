@@ -1,0 +1,25 @@
+From: Ilias Tsitsimpis <i.tsitsimpis@gmail.com>
+Date: Thu, 9 Jul 2015 16:39:11 +0300
+Subject: Remove timestamps from asciidoc output
+
+Patch doc/Makefile and use '-a footer-style=none' flag of 'asciidoc' to
+entirely remove timestamps.
+
+Forwarded: no (Debian specific, ensure idempotent build)
+---
+ doc/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/doc/Makefile b/doc/Makefile
+index 099a373..95f8937 100644
+--- a/doc/Makefile
++++ b/doc/Makefile
+@@ -5,7 +5,7 @@ all: $(HTML)
+ # when each target of a multi-target rule has its own prereq
+ # we use a static pattern rule.
+ $(HTML): %.html: %.txt
+-	asciidoc -a toc2 $<
++	asciidoc -a toc2 -a footer-style=none $<
+ 
+ TMP=/tmp/uthash-gh-pages
+ stage:

@@ -1,0 +1,55 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# Use a temporary build directory.
+# We cannot build the documentation in its source directory
+# because upstream already includes a compiled version of the
+# documentation. Running 'make' will overwrite the files, leaving
+# the source directory dirty.
+BUILD_DIR=debian/build-dir
+
+
+%:
+	dh $@
+
+.PHONY: override_dh_auto_build
+override_dh_auto_build:
+	# Create symlink from libut to uthash
+	ln -s ../ libut/uthash
+	cp libut/Makefile.standalone libut/Makefile
+	# Build 'libut.a' static library
+	$(MAKE) -C libut
+	# Build documentation (use a temp build directory)
+	mkdir -p $(BUILD_DIR)/html
+	cp --archive doc/* $(BUILD_DIR)/html/
+	$(MAKE) -C $(BUILD_DIR)/html clean
+	$(MAKE) -C $(BUILD_DIR)/html
+
+.PHONY: override_dh_installdocs
+override_dh_installdocs:
+	# Don't install Changelog twice, keep lintian happy
+	dh_installdocs --exclude=html/ChangeLog.txt
+
+.PHONY: override_dh_auto_test
+override_dh_auto_test:
+ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
+	# Run both testsuites
+	$(MAKE) -C tests
+	$(MAKE) -C libut tests
+endif
+
+.PHONY: override_dh_auto_clean
+override_dh_auto_clean:
+	# Clean 'libut' directory
+	cp libut/Makefile.standalone libut/Makefile
+	$(MAKE) -C libut clean
+	# Clean uthash testsuite
+	$(MAKE) -C tests clean
+	# Remove temp build directory
+	$(RM) -r $(BUILD_DIR)
+	$(RM) -r libut/uthash libut/Makefile
+	# Clean the rest of the files defined in 'd/clean'
+	dh_auto_clean

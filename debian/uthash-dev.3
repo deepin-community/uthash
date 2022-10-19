@@ -1,0 +1,105 @@
+'\" t
+.\"     Title: UTHASH-DEV
+.\"    Author: Bastian Blywis <blywis@googlemail.com>
+.\" Generator: DocBook XSL Stylesheets v1.78.1 <http://docbook.sf.net/>
+.\"      Date: 06/23/2015
+.\"    Manual: uthash-dev User Manual
+.\"    Source: uthash-dev
+.\"  Language: English
+.\"
+.TH "UTHASH\-DEV" "3" "06/23/2015" "uthash-dev" "uthash-dev User Manual"
+.\" -----------------------------------------------------------------
+.\" * Define some portability stuff
+.\" -----------------------------------------------------------------
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.\" http://bugs.debian.org/507673
+.\" http://lists.gnu.org/archive/html/groff/2009-02/msg00013.html
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.ie \n(.g .ds Aq \(aq
+.el       .ds Aq '
+.\" -----------------------------------------------------------------
+.\" * set default formatting
+.\" -----------------------------------------------------------------
+.\" disable hyphenation
+.nh
+.\" disable justification (adjust text to left margin only)
+.ad l
+.\" -----------------------------------------------------------------
+.\" * MAIN CONTENT STARTS HERE *
+.\" -----------------------------------------------------------------
+.SH "NAME"
+uthash-dev \- Hash map and linked list implementation
+.SH "SYNOPSIS"
+.HP \w'\fB#include\ <uthash\&.h>\fR\ 'u
+\fB#include <uthash\&.h>\fR
+.HP \w'\fB#include\ <utlist\&.h>\fR\ 'u
+\fB#include <utlist\&.h>\fR
+.HP \w'\fB#include\ <utarray\&.h>\fR\ 'u
+\fB#include <utarray\&.h>\fR
+.HP \w'\fB#include\ <utstring\&.h>\fR\ 'u
+\fB#include <utstring\&.h>\fR
+.HP \w'\fB#include\ <utvector\&.h>\fR\ 'u
+\fB#include <utvector\&.h>\fR
+.SH "DESCRIPTION"
+.PP
+The
+\fButhash\-dev\fR
+Debian package build from the \fButhash\fR source package contains the uthash,
+utlist, utarray, utstring and utvector headers\&. They can be included in any
+C source code and provide hash map, linked list, etc implementations as C
+preprocessor macros\&.
+.PP
+The documentation is available in the documentation directory of the package
+(/usr/share/doc/uthash\-dev/) in HTML format\&. Additionally, some examples are
+also included that have been provided as test cases in the upstream release\&.
+.SH "FILES"
+.PP
+/usr/include/uthash\&.h
+.RS 4
+The hash map implementation as C preprocessor macro\&.
+.RE
+.PP
+/usr/include/utlist\&.h
+.RS 4
+The linked list implementation as C preprocessor macro\&.
+.RE
+.PP
+/usr/include/utarray\&.h
+.RS 4
+The dynamic array implementation as C preprocessor macro\&.
+.RE
+.PP
+/usr/include/utstring\&.h
+.RS 4
+The dynamic string implementation as C preprocessor macro\&.
+.RE
+.PP
+/usr/include/utvector\&.h
+.RS 4
+The vector implementation which maintains a contiguous buffer of 'n' elements.
+.br
+In order to use, link with \fI\-lut\fP.
+.RE
+.SH "AUTHOR"
+.PP
+\fBBastian Blywis\fR <\&blywis@googlemail\&.com\&>
+.RS 4
+Wrote this manpage for the Debian system\&.
+.RE
+.SH "COPYRIGHT"
+.br
+Copyright \(co 2009 Bastian Blywis
+.br
+Copyright \(co 2015 Ilias Tsitsimpis
+.br
+.PP
+This manual page was written for the Debian system (and may be used by
+others)\&.
+.PP
+Permission is granted to copy, distribute and/or modify this document under the
+terms of the GNU General Public License, Version 3 or (at your option) any
+later version published by the Free Software Foundation\&.
+.PP
+On Debian systems, the complete text of the GNU General Public License can be
+found in /usr/share/common\-licenses/GPL\&.
+.sp
